@@ -15,11 +15,14 @@ import { CourseDetailComponent } from './course-detail/course-detail.component';
 import { LoadingComponent } from './loading/loading.component';
 import { MessagesComponent } from './messages/messages.component';
 import { CreateLessonComponent } from './create-lesson/create-lesson.component';
+import { AllLessonsComponent } from './all-lessons/all-lessons.component';
+import { CourseComponent } from './course/course.component';
 //services
 import { CourseDetailResolver } from './course-detail/course-detail.resolver';
 import { UserService } from './services/user.service';
 import { CoursesService } from './services/courses.service';
 import { MessagesService } from './services/messages.service';
+import { CoursesHttpService } from './services/courses-http.service';
 //3rd party
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -30,6 +33,7 @@ import 'rxjs/add/operator/publishLast';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/filter';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +46,9 @@ import 'rxjs/add/operator/filter';
     CourseDetailComponent,
     LoadingComponent,
     MessagesComponent,
-    CreateLessonComponent
+    CreateLessonComponent,
+    AllLessonsComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +64,8 @@ import 'rxjs/add/operator/filter';
     UserService,
     CoursesService,
     CourseDetailResolver,
-    MessagesService
+    MessagesService,
+    CoursesHttpService
   ],
   bootstrap: [AppComponent]
 })

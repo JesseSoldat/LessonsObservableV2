@@ -6,6 +6,12 @@
         Home
       </a>
     </li>
+    <li>
+      <a routerLink="all-lessons"
+        routerLinkActive="menu-active">
+        All Lessons
+      </a>
+    </li>
     <li *ngIf="!(isLoggedIn$ | async)">
       <a routerLink="login"
         routerLinkActive="menu-active"> 

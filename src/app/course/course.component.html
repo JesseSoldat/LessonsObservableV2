@@ -1,0 +1,18 @@
+<div class="course-md">
+  <h2>{{ (course$ | async)?.description }}</h2>
+
+  <div *ngIf=" detail$ | async as lessonDetail else masterTpl">
+    <button (click)="backToMaster()">Back</button>
+  </div>
+
+  <ng-template #masterTpl>
+    <div class="lessons-nav">
+      <button (click)="previousLessonsPage()">Previous</button>
+      <button (click)="nextLessonsPage()">Next</button>
+      
+      <lessons-list [lessons]="lessons$ | async"
+        (selected)="selectDetail($event)">
+      </lessons-list>
+    </div>
+  </ng-template>
+</div>
