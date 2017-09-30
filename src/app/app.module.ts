@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { routerConfig } from './router.config';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -11,10 +12,14 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
 import { CoursesListComponent } from './courses-list/courses-list.component';
 import { LessonsListComponent } from './lessons-list/lessons-list.component';
 import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { LoadingComponent } from './loading/loading.component';
+import { MessagesComponent } from './messages/messages.component';
+import { CreateLessonComponent } from './create-lesson/create-lesson.component';
 //services
+import { CourseDetailResolver } from './course-detail/course-detail.resolver';
 import { UserService } from './services/user.service';
 import { CoursesService } from './services/courses.service';
-import { CourseDetailResolver } from './course-detail/course-detail.resolver';
+import { MessagesService } from './services/messages.service';
 //3rd party
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -24,10 +29,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/publishLast';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/switchMap';
-import { LoadingComponent } from './loading/loading.component';
-import { MessagesComponent } from './messages/messages.component';
-
-
+import 'rxjs/add/operator/filter';
 
 @NgModule({
   declarations: [
@@ -39,11 +41,14 @@ import { MessagesComponent } from './messages/messages.component';
     LessonsListComponent,
     CourseDetailComponent,
     LoadingComponent,
-    MessagesComponent
+    MessagesComponent,
+    CreateLessonComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routerConfig),
     //3rd party
     AngularFireModule.initializeApp(firebaseConfig),
@@ -52,7 +57,8 @@ import { MessagesComponent } from './messages/messages.component';
   providers: [
     UserService,
     CoursesService,
-    CourseDetailResolver
+    CourseDetailResolver,
+    MessagesService
   ],
   bootstrap: [AppComponent]
 })

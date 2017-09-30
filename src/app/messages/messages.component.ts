@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { MessagesService } from '../services/messages.service';
 
 @Component({
   selector: 'messages',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
+  errors$: Observable<string[]>;
 
-  constructor() { }
+  constructor(private messagesService: MessagesService) { }
 
   ngOnInit() {
+    this.errors$ = this.messagesService.errors$;
+  }
+
+  close() {
+    this.messagesService.error();
   }
 
 }
