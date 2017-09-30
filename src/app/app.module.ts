@@ -8,9 +8,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
+import { CoursesListComponent } from './courses-list/courses-list.component';
+import { LessonsListComponent } from './lessons-list/lessons-list.component';
+import { CourseDetailComponent } from './course-detail/course-detail.component';
 //services
 import { UserService } from './services/user.service';
 import { CoursesService } from './services/courses.service';
+import { CourseDetailResolver } from './course-detail/course-detail.resolver';
 //3rd party
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -19,8 +23,9 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/publishLast';
 import 'rxjs/add/operator/first';
-import { CoursesListComponent } from './courses-list/courses-list.component';
-import { LessonsListComponent } from './lessons-list/lessons-list.component';
+import 'rxjs/add/operator/switchMap';
+
+
 
 @NgModule({
   declarations: [
@@ -29,7 +34,8 @@ import { LessonsListComponent } from './lessons-list/lessons-list.component';
     LoginComponent,
     TopMenuComponent,
     CoursesListComponent,
-    LessonsListComponent
+    LessonsListComponent,
+    CourseDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,8 @@ import { LessonsListComponent } from './lessons-list/lessons-list.component';
   ],
   providers: [
     UserService,
-    CoursesService
+    CoursesService,
+    CourseDetailResolver
   ],
   bootstrap: [AppComponent]
 })
