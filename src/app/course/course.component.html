@@ -3,6 +3,7 @@
 
   <div *ngIf=" detail$ | async as lessonDetail else masterTpl">
     <button (click)="backToMaster()">Back</button>
+    <lesson-detail [lesson]="lessonDetail"></lesson-detail>
   </div>
 
   <ng-template #masterTpl>

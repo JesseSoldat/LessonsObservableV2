@@ -17,6 +17,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { CreateLessonComponent } from './create-lesson/create-lesson.component';
 import { AllLessonsComponent } from './all-lessons/all-lessons.component';
 import { CourseComponent } from './course/course.component';
+import { SafeUrlPipe } from './shared/pipes/safe-url.pipe';
 //services
 import { CourseDetailResolver } from './course-detail/course-detail.resolver';
 import { UserService } from './services/user.service';
@@ -33,6 +34,7 @@ import 'rxjs/add/operator/publishLast';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/filter';
+import { LessonDetailComponent } from './lesson-detail/lesson-detail.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import 'rxjs/add/operator/filter';
     MessagesComponent,
     CreateLessonComponent,
     AllLessonsComponent,
-    CourseComponent
+    CourseComponent,
+    LessonDetailComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,
