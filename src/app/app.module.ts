@@ -24,6 +24,8 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/publishLast';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/switchMap';
+import { LoadingComponent } from './loading/loading.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 
@@ -35,7 +37,9 @@ import 'rxjs/add/operator/switchMap';
     TopMenuComponent,
     CoursesListComponent,
     LessonsListComponent,
-    CourseDetailComponent
+    CourseDetailComponent,
+    LoadingComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
