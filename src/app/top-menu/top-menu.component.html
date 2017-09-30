@@ -6,10 +6,15 @@
         Home
       </a>
     </li>
-    <li>
+    <li *ngIf="!(isLoggedIn$ | async)">
       <a routerLink="login"
         routerLinkActive="menu-active"> 
         Login
+      </a>
+    </li>
+    <li *ngIf="isLoggedIn$ | async">
+      <a (click)="logout()">
+        Logout
       </a>
     </li>
   </ul>

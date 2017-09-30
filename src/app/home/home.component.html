@@ -1,3 +1,12 @@
-<p>
-  home works!
-</p>
+<div class="screen-container">
+  
+  <h2>Courses</h2>
+
+  <courses-list [courses]="courses$ | async">
+  </courses-list>
+
+  <h2>Latest Lessons</h2>
+
+  <lessons-list [lessons]="latestLessons$ | async"></lessons-list>
+
+</div>

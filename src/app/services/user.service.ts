@@ -3,10 +3,6 @@ import { User } from '../shared/model/user';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/publishLast';
-
 
 export const UNKNOWN_USER: User = {
   firstName: 'Unknown'
@@ -30,5 +26,9 @@ export class UserService {
       .do(user => console.log(user))
       .do(user => this.subject.next(user))
       .publishLast().refCount();
+  }
+
+  logout() {
+    this.subject.next(UNKNOWN_USER);
   }
 }
